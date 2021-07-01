@@ -76,6 +76,9 @@ Full option list:
       run_number = ${{ github.run_number }}
       service    = "example"
 
+    # The address of the Terraform Enterprise API
+    terraform-host: "https://app.terraform.io"
+
   # Optionally, assign this step an ID so you can refer to the outputs from the
   # action with ${{ steps.<id>.outputs.<output variable> }}
   id: tfe-run
@@ -94,6 +97,7 @@ Name           | Required | Description                                         
 `targets`      |          | An optional list of resource addresses to target. Should be a list of strings separated by new lines.           | string |
 `wait-for-completion` |   | Whether we should wait for the plan or run to be applied. This will block until the run is finished.            | string | `false`
 `tf-vars`      |          | The contents of a auto.tfvars file that will be uploaded to Terraform Cloud.                                    | string |
+`terraform-host`      |          | The address of the Terraform Enterprise API                                                              | string | `https://app.terraform.io`
 
 [tfe-tokens]: https://www.terraform.io/docs/cloud/users-teams-organizations/api-tokens.html
 [tfe-speculative-run]: https://www.terraform.io/docs/cloud/run/index.html#speculative-plans

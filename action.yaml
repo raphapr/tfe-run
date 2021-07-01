@@ -1,4 +1,4 @@
-name: Terraform Cloud Run
+name: Terraform Cloud Run Action
 author: Koenraad Verheyden
 description: Create and customize a run on Terraform Cloud
 
@@ -7,6 +7,11 @@ branding:
   color: purple
 
 inputs:
+  terraform-host:
+    description: |
+     The address of the terraform Enterprise API
+    required: false
+    default: 'https://app.terraform.io'
   token:
     description: |
       Token used to communicating with the Terraform Cloud API. Must be a user or team api token.

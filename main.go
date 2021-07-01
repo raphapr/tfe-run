@@ -8,8 +8,8 @@ import (
 	"strconv"
 	"strings"
 
-	tferun "github.com/kvrhdn/go-tfe-run"
-	"github.com/kvrhdn/tfe-run/gha"
+	tferun "github.com/raphapr/go-tfe-run"
+	"github.com/raphapr/tfe-run/gha"
 )
 
 type input struct {
@@ -23,6 +23,7 @@ type input struct {
 	Targets           string
 	WaitForCompletion bool   `gha:"wait-for-completion"`
 	TfVars            string `gha:"tf-vars"`
+	TerraformHost     string `gha:"terraform-host"`
 }
 
 func main() {
@@ -51,6 +52,7 @@ func main() {
 		Token:        input.Token,
 		Organization: input.Organization,
 		Workspace:    input.Workspace,
+		Address:      input.TerraformHost,
 	}
 	c, err := tferun.NewClient(ctx, cfg)
 	if err != nil {
